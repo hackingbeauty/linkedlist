@@ -17,7 +17,23 @@ function LinkedList(){
       theNode = theNode.next;
     } 
     return count;
-  }
+  };
+  
+  this.removeAt = function(index) {
+    var prev = null;
+    var node = this.head;
+    var i = 0;
+    while (node != null && i++ < index) {
+      prev = node;
+      node = node.next;
+    }
+    if (prev == null) { 
+      this.head = node.next; 
+    } else { 
+      prev.next = node.next;
+    }
+  };
+  
 }
 
 function Node(value){
@@ -29,4 +45,6 @@ var list = new LinkedList();
 list.add(1);
 list.add(2)
 list.add(3);
+console.log(list.size());
+list.removeAt(1);
 console.log(list.size());
