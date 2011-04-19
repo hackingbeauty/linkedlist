@@ -8,6 +8,16 @@ function LinkedList(){
     if(this.tail != null) { this.tail.next = node; }
     this.tail = node;
   };
+  
+  this.size = function(){
+    var theNode = this.head
+    var count = 1;
+    while(theNode.next != null){
+      count++;
+      theNode = theNode.next;
+    } 
+    return count;
+  }
 }
 
 function Node(value){
@@ -19,3 +29,4 @@ var list = new LinkedList();
 list.add(1);
 list.add(2)
 list.add(3);
+console.log(list.size());
